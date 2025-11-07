@@ -10,7 +10,7 @@ const Manager = () => {
     const [show, setshow] = useState(false)
 
     const getdata = async () => {
-        let r = await fetch("http://localhost:3000/passwords")
+        let r = await fetch("https://password-manager-backend-five.vercel.app/passwords")
         let res = await r.json()
         setformarray(res)
     }
@@ -38,7 +38,7 @@ const Manager = () => {
         if (c) {
             let arr = formarray.filter(item => item.id !== id)
             setformarray(arr)
-            let r = await fetch("http://localhost:3000/passwords", {
+            let r = await fetch("https://password-manager-backend-five.vercel.app/passwords", {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const Manager = () => {
         setform(n,[object ,Object],)
         let arr = formarray.filter(item => item.id !== id)
         setformarray(arr)
-        let r = await fetch("http://localhost:3000/passwords", {
+        let r = await fetch("https://password-manager-backend-five.vercel.app/passwords", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -89,7 +89,7 @@ const Manager = () => {
     const saveform = async () => {
         if (form.site.length > 3 && form.username.length > 3 && form.password.length > 3) {
             setformarray([...formarray, { ...form, id: uuidv4() }])
-            let r = await fetch("http://localhost:3000/passwords", {
+            let r = await fetch("https://password-manager-backend-five.vercel.app/passwords", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
