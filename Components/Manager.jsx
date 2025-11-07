@@ -38,7 +38,7 @@ const Manager = () => {
         if (c) {
             let arr = formarray.filter(item => item.id !== id)
             setformarray(arr)
-            let r = await fetch("http://localhost:3000/", {
+            let r = await fetch("http://localhost:3000/passwords", {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
